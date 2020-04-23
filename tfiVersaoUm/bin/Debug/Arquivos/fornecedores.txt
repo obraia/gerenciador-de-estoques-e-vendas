@@ -1,0 +1,4 @@
+1;Sadia S.a;Alimentos;20,730,099/0001-94;MG;00000-000;(00) 0 0000-0000;sadia@gmail.com
+2;Seara Alimentos Ltda;Alimentos;02,914,460/0001-50;MG;00000-000;(00) 0 0000-0000;Seara@gmail.com
+3;Perdigão S.a;Alimentos;86,547,619/0127-38;MG;11111-111;(11) 1 1111-1111;perdigao@gmail.com
+4;Coca Cola Ltda;Alimentos;45,997,418/0001-53;AM;33333-333;(33) 3 3333-3333;CocaCola@gmail.com

@@ -1,0 +1,98 @@
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.config
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.pdb
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csprojAssemblyReference.cache
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Form1.resources
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Properties.Resources.resources
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.GenerateResource.cache
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CoreCompileInputs.cache
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.pdb
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.AdicionarProduto.resources
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.EditarProduto.resources
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Estoque.resources
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\Zen.Barcode.Core.dll
+C:\Users\Thais\Desktop\INTERDICIPLINAR\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CopyComplete
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.config
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.pdb
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.pdb
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csprojResolveAssemblyReference.cache
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Form1.resources
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.AdicionarProduto.resources
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.EditarProduto.resources
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Estoque.resources
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Properties.Resources.resources
+C:\Users\1214452\Desktop\tfi\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.GenerateResource.Cache
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.config
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.pdb
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csprojAssemblyReference.cache
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.AdicionarProduto.resources
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.EditarProduto.resources
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Estoque.resources
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Properties.Resources.resources
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.GenerateResource.cache
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CoreCompileInputs.cache
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CopyComplete
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.pdb
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Venda.resources
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.manifest
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\bin\Debug\tfiVersaoUm.application
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe.manifest
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.application
+C:\Users\Bryan\C#\TFI Forms\TFI - VERSAO 1 Bryan Diniz, Luiz Henrique, Maria Luiza, Thais Barcelos\TFI - VERSAO 1\tfiVersaoUm\tfiVersaoUm\obj\Debug\tfiVersaoUm.Principal.resources
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.config
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.manifest
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.application
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.pdb
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csprojAssemblyReference.cache
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Principal.resources
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.AdicionarProduto.resources
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.EditarProduto.resources
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Estoque.resources
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Venda.resources
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Properties.Resources.resources
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.GenerateResource.cache
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CoreCompileInputs.cache
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe.manifest
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.application
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CopyComplete
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe
+C:\Users\geova\Desktop\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.pdb
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.config
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe.manifest
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.application
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.exe
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\tfiVersaoUm.pdb
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csprojAssemblyReference.cache
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Principal.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.AdicionarProduto.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.EditarProduto.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Estoque.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Venda.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Properties.Resources.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.GenerateResource.cache
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CoreCompileInputs.cache
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe.manifest
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.application
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.csproj.CopyComplete
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.exe
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.pdb
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Fornecedores.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.AdicionarFornecedor.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.dll
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.pdb
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.xml
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.EditarFornecedor.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.QuantidadeQuilo.resources
+C:\Users\Bryan\C#\TFI Projeto\tfiVersaoUm\obj\Debug\tfiVersaoUm.Dashboard.resources
