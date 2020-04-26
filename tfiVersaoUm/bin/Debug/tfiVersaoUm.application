@@ -7,14 +7,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="tfiVersaoUm.exe.manifest" size="80916">
+    <dependentAssembly dependencyType="install" codebase="tfiVersaoUm.exe.manifest" size="80920">
       <assemblyIdentity name="tfiVersaoUm.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>byOm03LCZprANF/V7mq1IrW1kPl0jHe/fmeHTNPvY/k=</dsig:DigestValue>
+        <dsig:DigestValue>B/2DJcY04jIwSb8MNCwM3dWnQbPNa32RaBbHRLmwZ74=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

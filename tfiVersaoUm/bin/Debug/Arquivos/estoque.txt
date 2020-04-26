@@ -5,4 +5,4 @@
 789123400006;Limpeza;Lava-louças Ypê 500ml;1,70;18;8;15/11/2019 10:50:50;Marca: Ypê
 789123400007;Higiene pessoal;Colgate Total 12;8,29;33;10;16/11/2019 08:55:36;COLGATE TOTAL 12 PROFESSIONAL WHITENING
 789123400008;Alimentos;Sabão em pó OMO;5,00;9;1;23/04/2020 16:22:57;São em pó
-789123400009;Higiene pessoal;Álcool em gel;999,00;25;0;25/04/2020 21:37:18;Álcool em gel Asseptgel 70% 1kg
+789123400009;Higiene pessoal;Álcool em gel;995,00;25;0;25/04/2020 23:19:33;Álcool em gel Asseptgel 70% 1kg

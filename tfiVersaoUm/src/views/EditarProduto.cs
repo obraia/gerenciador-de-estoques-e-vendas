@@ -82,6 +82,8 @@ namespace tfiVersaoUm
         {
             try
             {
+                ProdutoController produtoController = new ProdutoController();
+
                 IProduto produto;
                 string codigo = textBox_id.Text;
                 string categoria = comboBox_categoria.Text;
@@ -119,6 +121,7 @@ namespace tfiVersaoUm
                     }
 
                     ArquivoEstoque.ListaProdutos[Index] = produto;
+                    produtoController.Update(produto);
 
                     string message = "Produto editado com sucesso";
                     string caption = "Sucesso";

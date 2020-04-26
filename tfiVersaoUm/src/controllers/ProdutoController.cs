@@ -18,10 +18,8 @@ namespace tfiVersaoUm
 
         public void Update(IProduto produto)
         {
-            FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq(p => p.ID, produto.ID);
-            UpdateDefinition<IProduto> changes = Builders<IProduto>.Update.Set(p => p, produto);
-
-            connection.Collection.UpdateOne(filter, changes);
+            FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("ID", produto.ID);
+            connection.Collection.ReplaceOne(filter, produto);
         }
     }
 }

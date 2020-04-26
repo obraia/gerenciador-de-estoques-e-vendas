@@ -125,7 +125,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\dao\Connection.cs" />
+    <Compile Include="src\controllers\ProdutoController.cs" />
+    <Compile Include="src\services\Connection.cs" />
     <Compile Include="src\utils\ArquivoFinanceiro.cs" />
     <Compile Include="src\utils\ArquivoEstoque.cs" />
     <Compile Include="src\utils\ArquivoFornecedores.cs" />
@@ -137,104 +138,104 @@
       <DependentUpon>Data.xsd</DependentUpon>
     </Compile>
     <Compile Include="src\utils\GerarArquivos.cs" />
-    <Compile Include="src\gui\EditarFornecedor.cs">
+    <Compile Include="src\views\EditarFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\EditarFornecedor.Designer.cs">
+    <Compile Include="src\views\EditarFornecedor.Designer.cs">
       <DependentUpon>EditarFornecedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\Dashboard.cs">
+    <Compile Include="src\views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\Dashboard.Designer.cs">
+    <Compile Include="src\views\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\AdicionarFornecedor.cs">
+    <Compile Include="src\views\AdicionarFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\AdicionarFornecedor.Designer.cs">
+    <Compile Include="src\views\AdicionarFornecedor.Designer.cs">
       <DependentUpon>AdicionarFornecedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\products\Fornecedor.cs" />
-    <Compile Include="src\gui\Fornecedores.cs">
+    <Compile Include="src\models\Fornecedor.cs" />
+    <Compile Include="src\views\Fornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\Fornecedores.Designer.cs">
+    <Compile Include="src\views\Fornecedores.Designer.cs">
       <DependentUpon>Fornecedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\Principal.cs">
+    <Compile Include="src\views\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\Principal.Designer.cs">
+    <Compile Include="src\views\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\AdicionarProduto.cs">
+    <Compile Include="src\views\AdicionarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\AdicionarProduto.Designer.cs">
+    <Compile Include="src\views\AdicionarProduto.Designer.cs">
       <DependentUpon>AdicionarProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\EditarProduto.cs">
+    <Compile Include="src\views\EditarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\EditarProduto.Designer.cs">
+    <Compile Include="src\views\EditarProduto.Designer.cs">
       <DependentUpon>EditarProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\Estoque.cs">
+    <Compile Include="src\views\Estoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\Estoque.Designer.cs">
+    <Compile Include="src\views\Estoque.Designer.cs">
       <DependentUpon>Estoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\gui\RoundedPanel.cs">
+    <Compile Include="src\views\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\gui\Venda.cs">
+    <Compile Include="src\views\Venda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\Venda.Designer.cs">
+    <Compile Include="src\views\Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\products\Outros.cs" />
-    <Compile Include="src\products\Hortifruti.cs" />
-    <Compile Include="src\products\HigienePessoal.cs" />
-    <Compile Include="src\products\Limpeza.cs" />
-    <Compile Include="src\products\Alimento.cs" />
-    <Compile Include="src\products\IProduto.cs" />
+    <Compile Include="src\models\Outros.cs" />
+    <Compile Include="src\models\Hortifruti.cs" />
+    <Compile Include="src\models\HigienePessoal.cs" />
+    <Compile Include="src\models\Limpeza.cs" />
+    <Compile Include="src\models\Alimento.cs" />
+    <Compile Include="src\models\IProduto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\gui\QuantidadeQuilo.cs">
+    <Compile Include="src\views\QuantidadeQuilo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\gui\QuantidadeQuilo.Designer.cs">
+    <Compile Include="src\views\QuantidadeQuilo.Designer.cs">
       <DependentUpon>QuantidadeQuilo.cs</DependentUpon>
     </Compile>
     <Compile Include="src\utils\RelatorioVendas.cs" />
-    <EmbeddedResource Include="src\gui\EditarFornecedor.resx">
+    <EmbeddedResource Include="src\views\EditarFornecedor.resx">
       <DependentUpon>EditarFornecedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\AdicionarFornecedor.resx">
+    <EmbeddedResource Include="src\views\AdicionarFornecedor.resx">
       <DependentUpon>AdicionarFornecedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\Dashboard.resx">
+    <EmbeddedResource Include="src\views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\Fornecedores.resx">
+    <EmbeddedResource Include="src\views\Fornecedores.resx">
       <DependentUpon>Fornecedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\Principal.resx">
+    <EmbeddedResource Include="src\views\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\AdicionarProduto.resx">
+    <EmbeddedResource Include="src\views\AdicionarProduto.resx">
       <DependentUpon>AdicionarProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\EditarProduto.resx">
+    <EmbeddedResource Include="src\views\EditarProduto.resx">
       <DependentUpon>EditarProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\Estoque.resx">
+    <EmbeddedResource Include="src\views\Estoque.resx">
       <DependentUpon>Estoque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\gui\Venda.resx">
+    <EmbeddedResource Include="src\views\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -246,7 +247,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="src\gui\QuantidadeQuilo.resx">
+    <EmbeddedResource Include="src\views\QuantidadeQuilo.resx">
       <DependentUpon>QuantidadeQuilo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Diagramas Produtos.cd" />
@@ -277,8 +278,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\gui\images\DefaultPicture.png" />
-    <Content Include="src\gui\images\SelectPicture.png" />
+    <Content Include="src\views\images\DefaultPicture.png" />
+    <Content Include="src\views\images\SelectPicture.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
