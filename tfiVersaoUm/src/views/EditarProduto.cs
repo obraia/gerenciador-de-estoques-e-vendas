@@ -59,8 +59,8 @@ namespace tfiVersaoUm
             CarregarProduto();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
-            ImagemEntrada = @"Arquivos\Estoque\Imagens\" + ArquivoEstoque.ListaProdutos[Index].ID + ".png";
-            ImagemSaida = @"Arquivos\Estoque\Imagens\" + ArquivoEstoque.ListaProdutos[Index].ID + ".png";
+            ImagemEntrada = @"Arquivos\Estoque\Imagens\" + ArquivoEstoque.ListaProdutos[Index].CodigoBarras + ".png";
+            ImagemSaida = @"Arquivos\Estoque\Imagens\" + ArquivoEstoque.ListaProdutos[Index].CodigoBarras + ".png";
         }
 
         private void button_abrirImagem_Click(object sender, EventArgs e)
@@ -120,19 +120,32 @@ namespace tfiVersaoUm
                             break;
                     }
 
-                    ArquivoEstoque.ListaProdutos[Index] = produto;
-                    produtoController.Update(produto);
+                    int response = produtoController.Update(produto);
+             
+                    if(response > 0)
+                    {
+                        ArquivoEstoque.ListaProdutos[Index] = produto;
 
-                    string message = "Produto editado com sucesso";
-                    string caption = "Sucesso";
-                    MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result;
+                        string message = "Produto editado com sucesso";
+                        string caption = "Sucesso";
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result;
 
-                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Information);
+                        result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Information);
 
-                    ArquivoEstoque.SalvarArquivo();
+                        ArquivoEstoque.SalvarArquivo();
+                        this.Close();
+                    }
+                    else
+                    {
+                        string message = "Ocorreu algum erro ao tentar editar o produto";
+                        string caption = "Erro";
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result;
 
-                    this.Close();
+                        result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
+                    }
+                                        
                 }
                 else
                 {
@@ -159,11 +172,11 @@ namespace tfiVersaoUm
         private void CarregarProduto()
         {
             textBox_nome.Text = ArquivoEstoque.ListaProdutos[Index].Nome;
-            textBox_id.Text = ArquivoEstoque.ListaProdutos[Index].ID;
+            textBox_id.Text = ArquivoEstoque.ListaProdutos[Index].CodigoBarras;
             textBox_quantidade.Text = ArquivoEstoque.ListaProdutos[Index].Quantidade.ToString();
             textBox_preco.Text = ArquivoEstoque.ListaProdutos[Index].Preco.ToString("F2");
             textBox_descricao.Text = ArquivoEstoque.ListaProdutos[Index].Descricao;
-            pictureBox_imagem.BackgroundImage = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + ArquivoEstoque.ListaProdutos[Index].ID + ".png");
+            pictureBox_imagem.BackgroundImage = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + ArquivoEstoque.ListaProdutos[Index].CodigoBarras + ".png");
 
             if (ArquivoEstoque.ListaProdutos[Index].Categoria == "Alimentos")
             {

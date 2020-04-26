@@ -90,40 +90,52 @@ namespace tfiVersaoUm
                     ImagemSaida = @"Arquivos\Imagens\Estoque\" + codigo + ".png";
                     Imagem.Copiar(ImagemEntrada, ImagemSaida);
 
-                    if (categoria == "Alimentos")
+                    switch (categoria)
                     {
-                        produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                        case "Alimentos":
+                            produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+                        case "Limpeza":
+                            produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+                        case "Higiene pessoal":
+                            produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+                        case "Hortifruti":
+                            produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+                        default:
+                            produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
+                            break;
                     }
-                    else if (categoria == "Limpeza")
+
+                    int response = produtoController.Store(produto);
+
+                    if(response > 0)
                     {
-                        produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                    }
-                    else if (categoria == "Higiene pessoal")
-                    {
-                        produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                    }
-                    else if (categoria == "Hortifruti")
-                    {
-                        produto = new Hortifruti(codigo, nome, preco, quantidade, 0, dataCadastro, descricao);
+                        ArquivoEstoque.ListaProdutos.Add(produto);
+
+                        string message = "Produto adicionado com sucesso";
+                        string caption = "Sucesso";
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result;
+
+                        result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Information);
+
+                        ArquivoEstoque.SalvarArquivo();
+
+                        this.Close();
                     }
                     else
                     {
-                        produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
+                        string message = "Ocorreu algum erro ao tentar adiocionar o produto";
+                        string caption = "Erro";
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result;
+
+                        result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
                     }
-
-                    ArquivoEstoque.ListaProdutos.Add(produto);
-                    produtoController.Store(produto);
-
-                    string message = "Produto adicionado com sucesso";
-                    string caption = "Sucesso";
-                    MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result;
-
-                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Information);
-
-                    ArquivoEstoque.SalvarArquivo();
-
-                    this.Close();
+                   
                 }
                 else
                 {
@@ -168,7 +180,7 @@ namespace tfiVersaoUm
         {
             if (ArquivoEstoque.ListaProdutos.Count > 0)
             {
-                string id = (long.Parse(ArquivoEstoque.ListaProdutos[ArquivoEstoque.ListaProdutos.Count - 1].ID) + 1).ToString();
+                string id = (long.Parse(ArquivoEstoque.ListaProdutos[ArquivoEstoque.ListaProdutos.Count - 1].CodigoBarras) + 1).ToString();
                 textBox_id.Text = id;
                 comboBox_categoria.SelectedIndex = 0;
             }

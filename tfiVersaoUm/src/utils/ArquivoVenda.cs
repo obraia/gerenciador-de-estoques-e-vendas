@@ -36,7 +36,7 @@ namespace tfiVersaoUm
                 {
                     if (produto.TipoVenda != "Quilo")
                     {
-                        string codigo = produto.ID;
+                        string codigo = produto.CodigoBarras;
                         string nome = produto.Nome;
                         double quantidadeVendida = produto.QuantidadeComprada;
                         string linha = codigo + ";" + nome + ";" + quantidadeVendida;

@@ -35,7 +35,7 @@ namespace tfiVersaoUm
 
         public void Update(IProduto produto)
         {
-            FilterDefinition<IProduto> filter =  Builders<IProduto>.Filter.Eq(p => p.ID, produto.ID);
+            FilterDefinition<IProduto> filter =  Builders<IProduto>.Filter.Eq(p => p.CodigoBarras, produto.CodigoBarras);
             UpdateDefinition<IProduto> changes = Builders<IProduto>.Update.Set(p => p, produto);
 
             this.Collection.UpdateOne(filter, changes);

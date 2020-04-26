@@ -111,7 +111,7 @@ namespace tfiVersaoUm
                     // caso o produto já tenha entrado na lista de compras
                     // será incrementado +1 em sua quantidade
 
-                    if (codigoDeBarras == produto.ID)
+                    if (codigoDeBarras == produto.CodigoBarras)
                     {
                         if (produto.Quantidade > 0)
                         {
@@ -171,7 +171,7 @@ namespace tfiVersaoUm
             {
                 foreach (IProduto produtoEstoque in ArquivoEstoque.ListaProdutos)
                 {
-                    if (codigoDeBarras == produtoEstoque.ID)
+                    if (codigoDeBarras == produtoEstoque.CodigoBarras)
                     {
                         if (produtoEstoque.Quantidade > 0)
                         {
@@ -238,7 +238,7 @@ namespace tfiVersaoUm
         {
             double preco = 0;
 
-            string caminhoImagem = @"Arquivos\Imagens\Estoque\" + produto.ID + ".png";
+            string caminhoImagem = @"Arquivos\Imagens\Estoque\" + produto.CodigoBarras + ".png";
             pictureBoxProduto.Image = Imagem.Carregar(caminhoImagem);
             labelNome.Text = produto.Nome;
 
@@ -259,7 +259,7 @@ namespace tfiVersaoUm
             try //Gerar código de barras do produto
             {
                 Zen.Barcode.CodeEan13BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.CodeEan13WithChecksum;
-                pictureBoxCodigoBarras.Image = brCode.Draw(produto.ID, 60, 20);
+                pictureBoxCodigoBarras.Image = brCode.Draw(produto.CodigoBarras, 60, 20);
             }
             catch
             {

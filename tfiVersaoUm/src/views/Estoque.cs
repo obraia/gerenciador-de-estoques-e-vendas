@@ -7,7 +7,9 @@ namespace tfiVersaoUm
     {
         public Estoque()
         {
-            ArquivoEstoque.LerArquivo();
+            ProdutoController produtoController = new ProdutoController();
+            //ArquivoEstoque.LerArquivo();
+            ArquivoEstoque.ListaProdutos = produtoController.Index();
             InitializeComponent();
             CarregarTabela();
         }
@@ -22,11 +24,13 @@ namespace tfiVersaoUm
         private void button_excluir_Click(object sender, EventArgs e)
         {
             int index = 0;
+            string id = "";
 
             if (listView_estoque.SelectedItems.Count > 0)
             {
                 ListViewItem selItem = listView_estoque.SelectedItems[0];
                 index = selItem.Index;
+                id = selItem.Text;
 
                 string message = "Tem certeza que deseja excluir o produto?";
                 string caption = "Atenção";
@@ -36,15 +40,43 @@ namespace tfiVersaoUm
 
                 switch (result)
                 {
-                    case DialogResult.Yes:   // Yes button pressed
-                        ArquivoEstoque.RemoverProduto(index);
+                    case DialogResult.Yes:
+                        RemoverProduto(index, id);
                         LimparComponentes();
                         CarregarTabela();
                         ArquivoEstoque.SalvarArquivo();
                         break;
-                    case DialogResult.No:    // No button pressed
+                    case DialogResult.No:
                         break;
                 }
+            }
+        }
+
+        private void RemoverProduto(int index, string id)
+        {
+            ProdutoController produtoController = new ProdutoController();
+
+            int response = produtoController.Delete(id);
+
+            if (response > 0)
+            {
+                ArquivoEstoque.RemoverProduto(index);
+
+                string message = "Produto excluido com sucesso";
+                string caption = "Sucesso";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string message = "Ocorreu algum erro ao tentar excluir o produto";
+                string caption = "Erro";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
             }
         }
 
@@ -82,6 +114,7 @@ namespace tfiVersaoUm
         void CarregarProdutoTabela()
         {
             int index = 0;
+            string categoria;
 
             if (listView_estoque.SelectedItems.Count > 0)
             {
@@ -91,38 +124,36 @@ namespace tfiVersaoUm
                 lb_valorTotal.Text = "R$ " + (ArquivoEstoque.ListaProdutos[index].Preco * ArquivoEstoque.ListaProdutos[index].Quantidade).ToString("F2");
                 lb_dataCadastro.Text = ArquivoEstoque.ListaProdutos[index].DataCadastro.ToString();
                 textBox_descricao.Text = ArquivoEstoque.ListaProdutos[index].Descricao;
-                pictureBox_produto.Image = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + ArquivoEstoque.ListaProdutos[index].ID + ".png");
+                pictureBox_produto.Image = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + ArquivoEstoque.ListaProdutos[index].CodigoBarras + ".png");
 
-                if (ArquivoEstoque.ListaProdutos[index].Categoria == "Alimentos")
+                categoria = ArquivoEstoque.ListaProdutos[index].Categoria;
+
+                switch (categoria)
                 {
-                    pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\alimentos.png");
-                }
-                else if (ArquivoEstoque.ListaProdutos[index].Categoria == "Limpeza")
-                {
-                    pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\limpeza.png");
-                }
-                else if (ArquivoEstoque.ListaProdutos[index].Categoria == "Higiene pessoal")
-                {
-                    pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\higienePessoal.png");
-                }
-                else if (ArquivoEstoque.ListaProdutos[index].Categoria == "Hortifruti")
-                {
-                    pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\hortifruti.png");
-                }
-                else if (ArquivoEstoque.ListaProdutos[index].Categoria == "Outros")
-                {
-                    pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\outros.png");
+                    case "Alimentos":
+                        pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\alimentos.png");
+                        break;
+                    case "Limpeza":
+                        pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\limpeza.png");
+                        break;
+                    case "Higiene pessoal":
+                        pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\higienePessoal.png");
+                        break;
+                    case "Hortifruti":
+                        pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\hortifruti.png");
+                        break;
+
+                    default:
+                        pictureBox_categoria.Image = Imagem.Carregar(@"Arquivos\Imagens\Categorias\outros.png");
+                        break;
                 }
 
                 try //Gerar código de barras do produto
                 {
                     Zen.Barcode.CodeEan13BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.CodeEan13WithChecksum;
-                    pB_codigoBarras.Image = brCode.Draw(ArquivoEstoque.ListaProdutos[index].ID, 60, 20);
+                    pB_codigoBarras.Image = brCode.Draw(ArquivoEstoque.ListaProdutos[index].CodigoBarras, 60, 20);
                 }
-                catch
-                {
-
-                }
+                catch { }
             }
         }
 
@@ -132,7 +163,7 @@ namespace tfiVersaoUm
 
             foreach (var produto in ArquivoEstoque.ListaProdutos)
             {
-                string id = produto.ID;
+                string codigoBarras = produto.CodigoBarras;
                 string categoria = produto.Categoria;
                 string nome = produto.Nome;
                 string preco = "R$ " + produto.Preco.ToString("F2");
@@ -140,7 +171,7 @@ namespace tfiVersaoUm
                 string dataDeCadastro = produto.DataCadastro.ToString();
                 string descricao = produto.Descricao;
 
-                string[] row = { id, categoria, nome, preco, quantidade };
+                string[] row = { codigoBarras, categoria, nome, preco, quantidade };
                 var listViewItem = new ListViewItem(row);
                 listView_estoque.Items.Add(listViewItem);
             }
@@ -165,27 +196,21 @@ namespace tfiVersaoUm
             switch (e.Column)
             {
                 case 0:
-                    ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.ID.CompareTo(p2.ID));
+                    ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.CodigoBarras.CompareTo(p2.CodigoBarras));
                     break;
-
                 case 1:
                     ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.Categoria.CompareTo(p2.Categoria));
                     break;
-
                 case 2:
                     ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.Nome.CompareTo(p2.Nome));
                     break;
-
                 case 3:
                     ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.Preco.CompareTo(p2.Preco));
                     break;
-
                 case 4:
                     ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.Quantidade.CompareTo(p2.Quantidade));
                     break;
-
                 default:
-                    MessageBox.Show("Default");
                     break;
             }
 

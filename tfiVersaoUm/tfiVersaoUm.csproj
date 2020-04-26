@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\controllers\ProdutoController.cs" />
+    <Compile Include="src\models\Produto.cs" />
     <Compile Include="src\services\Connection.cs" />
     <Compile Include="src\utils\ArquivoFinanceiro.cs" />
     <Compile Include="src\utils\ArquivoEstoque.cs" />

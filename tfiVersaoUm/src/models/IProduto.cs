@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using MongoDB.Bson;
+
 namespace tfiVersaoUm
 {
     interface IProduto : IComparable<IProduto>
     {
-        string ID { get; }
+        ObjectId _id { get; set; }
+        string CodigoBarras { get; }
         string Categoria { get; }
         string Nome { get; }
         double Preco { get; }

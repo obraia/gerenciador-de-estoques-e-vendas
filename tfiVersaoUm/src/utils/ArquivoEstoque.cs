@@ -79,6 +79,7 @@ namespace tfiVersaoUm
 
                 result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
             }
+
         }
 
         public static void SalvarArquivo()
@@ -94,7 +95,7 @@ namespace tfiVersaoUm
 
         public static void RemoverProduto(int index)
         {
-            File.Delete(@"Arquivos\Imagens\Estoque\" + ListaProdutos[index].ID + ".png");
+            File.Delete(@"Arquivos\Imagens\Estoque\" + ListaProdutos[index].CodigoBarras + ".png");
             ListaProdutos.RemoveAt(index);
         }
 

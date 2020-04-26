@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MongoDB.Driver;
 
 namespace tfiVersaoUm
@@ -11,15 +12,61 @@ namespace tfiVersaoUm
     {
         private static Connection connection = new Connection("produtos");
 
-        public void Store(IProduto produto)
+        public List<IProduto> Index()
         {
-            connection.Collection.InsertOne(produto);
+            try
+            {
+                FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Empty;
+                List<IProduto> response = connection.Collection.Find(filter).ToList();
+                return response;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return new List<IProduto>();
+            }
         }
 
-        public void Update(IProduto produto)
+        public int Store(IProduto produto)
         {
-            FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("ID", produto.ID);
-            connection.Collection.ReplaceOne(filter, produto);
+            try
+            {
+                connection.Collection.InsertOne(produto);
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+            
+        }
+
+        public int Update(IProduto produto)
+        {
+            try
+            {
+                FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("ID", produto.CodigoBarras);
+                ReplaceOneResult response = connection.Collection.ReplaceOne(filter, produto);
+                return (int)response.ModifiedCount;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int Delete(string id)
+        {
+            try
+            {
+                FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("ID", id);
+                DeleteResult response = connection.Collection.DeleteOne(filter);
+                return (int)response.DeletedCount;
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }

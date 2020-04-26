@@ -1,8 +1,2 @@
-789123400001;Alimentos;Bolo de chocolate;10,00;97;0;23/04/2020 16:22:18;Bolo de chocolate
-789123400003;Alimentos;Pão de forma;2,85;74;3;15/11/2019 18:53:16;Pão de forma
-789123400004;Alimentos;Miojo;1,00;66;7;15/11/2019 14:10:33;Macarrão instantâneo
-789123400005;Alimentos;Feijão;7,20;10;7;15/11/2019 18:53:37;Feijão Máximo
-789123400006;Limpeza;Lava-louças Ypê 500ml;1,70;18;8;15/11/2019 10:50:50;Marca: Ypê
-789123400007;Higiene pessoal;Colgate Total 12;8,29;33;10;16/11/2019 08:55:36;COLGATE TOTAL 12 PROFESSIONAL WHITENING
-789123400008;Alimentos;Sabão em pó OMO;5,00;9;1;23/04/2020 16:22:57;São em pó
-789123400009;Higiene pessoal;Álcool em gel;995,00;25;0;25/04/2020 23:19:33;Álcool em gel Asseptgel 70% 1kg
+789123400001;Alimentos;Pão de forma;3,00;35;0;26/04/2020 01:24:01;Pão de forma Panco Premium
+789123400002;Alimentos;Sabão em pó OMO;6,00;12;0;26/04/2020 01:25:10;Sabão em Pó OMO 400g

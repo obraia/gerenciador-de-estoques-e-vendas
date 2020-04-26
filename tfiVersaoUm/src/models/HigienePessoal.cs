@@ -2,19 +2,11 @@
 
 namespace tfiVersaoUm
 {
-    class HigienePessoal : IProduto, IComparable<IProduto>
+    class HigienePessoal : Produto, IComparable<IProduto>
     {
-        public double Imposto { get => 0.27;}
-        public string ID { get; private set; }
-        public string Categoria { get; private set; }
-        public string Nome { get; private set; }
-        public double Preco { get; private set; }
-        public string TipoVenda { get; set; }
-        public double Quantidade { get; set; }
-        public double QuantidadeComprada { get; set; }
-        public double QuantidadeVendida { get; set; }
-        public DateTime DataCadastro { get; private set; }
-        public string Descricao { get; private set; }
+        public override double Imposto { get => 0.27; }
+        public override string Categoria { get => "Higiene pessoal"; }
+        public override string TipoVenda { get => "Unidade"; }
 
         public int CompareTo(IProduto produto)
         {
@@ -27,26 +19,9 @@ namespace tfiVersaoUm
             return produto.QuantidadeVendida.CompareTo(this.QuantidadeVendida);
         }
 
-        public HigienePessoal()
+        public HigienePessoal(string codigoBarras, string nome, double preco, int quantidade, int quantidadeVendida, DateTime dataCadastro, string descricao) : base(codigoBarras, nome, preco, quantidade, quantidadeVendida, dataCadastro, descricao)
         {
-        }
 
-        public HigienePessoal(string id, string nome, double preco, int quantidade, int quantidadeVendida, DateTime dataCadastro, string descricao)
-        {
-            ID = id;
-            Categoria = "Higiene pessoal";
-            Nome = nome;
-            Preco = preco;
-            TipoVenda = "Unidade";
-            Quantidade = quantidade;
-            QuantidadeVendida = quantidadeVendida;
-            DataCadastro = dataCadastro;
-            Descricao = descricao;
-        }
-
-        public string EscreverArquivo()
-        {
-            return ID + ";" + Categoria + ";" + Nome + ";" + Preco.ToString("F2") + ";" + Quantidade + ";" + QuantidadeVendida + ";" + DataCadastro.ToString() + ";" + Descricao;
         }
     }
 }
