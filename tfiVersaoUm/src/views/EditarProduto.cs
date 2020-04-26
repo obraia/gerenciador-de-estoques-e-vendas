@@ -82,6 +82,7 @@ namespace tfiVersaoUm
         {
             try
             {
+                IProduto produto;
                 string codigo = textBox_id.Text;
                 string categoria = comboBox_categoria.Text;
                 string nome = textBox_nome.Text;
@@ -97,31 +98,27 @@ namespace tfiVersaoUm
                         Imagem.Copiar(ImagemEntrada, ImagemSaida);
                     }
 
-                    if (categoria == "Alimentos")
+                    switch (categoria)
                     {
-                        Alimento produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos[Index] = produto;
+                        case "Alimentos":
+                            produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+                        case "Limpeza":
+                            produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+                        case "Higiene pessoal":
+                            produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+                        case "Hortifruti":
+                        produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            break;
+
+                        default:
+                            produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
+                            break;
                     }
-                    else if (categoria == "Limpeza")
-                    {
-                        Limpeza produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos[Index] = produto;
-                    }
-                    else if (categoria == "Higiene pessoal")
-                    {
-                        HigienePessoal produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos[Index] = produto;
-                    }
-                    else if (categoria == "Hortifruti")
-                    {
-                        Hortifruti produto = new Hortifruti(codigo, nome, preco, quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos[Index] = produto;
-                    }
-                    else if (categoria == "Outros")
-                    {
-                        Outros produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos[Index] = produto;
-                    }
+
+                    ArquivoEstoque.ListaProdutos[Index] = produto;
 
                     string message = "Produto editado com sucesso";
                     string caption = "Sucesso";

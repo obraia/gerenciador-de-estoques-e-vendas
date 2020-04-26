@@ -36,25 +36,24 @@ namespace tfiVersaoUm
                             DateTime dataDeCadastro = DateTime.Parse(aux[6]);
                             string descricao = aux[7];
 
-                            if (categoria == "Alimentos")
+                            switch (categoria)
                             {
-                                produto = new Alimento(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
-                            }
-                            else if (categoria == "Limpeza")
-                            {
-                                produto = new Limpeza(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
-                            }
-                            else if (categoria == "Higiene pessoal")
-                            {
-                                produto = new HigienePessoal(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
-                            }
-                            else if (categoria == "Hortifruti")
-                            {
-                                produto = new Hortifruti(id, nome, preco, quantidade, quantidadeVendida, dataDeCadastro, descricao);
-                            }
-                            else
-                            {
-                                produto = new Outros(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                case "Alimentos":
+                                    produto = new Alimento(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    break;
+                                case "Limpeza":
+                                    produto = new Limpeza(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    break;
+                                case "Higiene pessoal":
+                                    produto = new HigienePessoal(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    break;
+                                case "Hortifruti":
+                                    produto = new Hortifruti(id, nome, preco, quantidade, quantidadeVendida, dataDeCadastro, descricao);
+                                    break;
+
+                                default:
+                                    produto = new Outros(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    break;
                             }
 
                             ListaProdutos.Add(produto);
@@ -80,7 +79,6 @@ namespace tfiVersaoUm
 
                 result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
             }
-
         }
 
         public static void SalvarArquivo()

@@ -74,7 +74,7 @@ namespace tfiVersaoUm
         {
             try
             {
-                Connection connection = new Connection("produtos");
+                ProdutoController produtoController = new ProdutoController();
 
                 IProduto produto;
                 string codigo = textBox_id.Text;
@@ -112,7 +112,7 @@ namespace tfiVersaoUm
                     }
 
                     ArquivoEstoque.ListaProdutos.Add(produto);
-                    connection.Store(produto);
+                    produtoController.Store(produto);
 
                     string message = "Produto adicionado com sucesso";
                     string caption = "Sucesso";

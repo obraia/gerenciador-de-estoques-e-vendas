@@ -10,9 +10,9 @@ namespace tfiVersaoUm
 {
     class Connection
     {
-        MongoClient Cliente;
-        IMongoDatabase Database;
-        IMongoCollection<IProduto> Collection;
+        private MongoClient Cliente;
+        private IMongoDatabase Database;
+        public IMongoCollection<IProduto> Collection;
 
         public Connection(string collection)
         {
@@ -31,6 +31,14 @@ namespace tfiVersaoUm
         public void Store(IProduto produto)
         {
             this.Collection.InsertOne(produto);
+        }
+
+        public void Update(IProduto produto)
+        {
+            FilterDefinition<IProduto> filter =  Builders<IProduto>.Filter.Eq(p => p.ID, produto.ID);
+            UpdateDefinition<IProduto> changes = Builders<IProduto>.Update.Set(p => p, produto);
+
+            this.Collection.UpdateOne(filter, changes);
         }
     }
 }
