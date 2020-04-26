@@ -12,11 +12,6 @@ namespace tfiVersaoUm
             CarregarTabela();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CarregarProdutoTabela();
-        }
-
         private void button_adicionar_Click(object sender, EventArgs e)
         {
             AdicionarProduto addProduto = new AdicionarProduto();
@@ -51,6 +46,15 @@ namespace tfiVersaoUm
                         break;
                 }
             }
+        }
+
+        private void LimparComponentes()
+        {
+            lb_valorTotal.Text = "R$ 0,00";
+            lb_dataCadastro.Text = "00/00/0000";
+            textBox_descricao.Text = "";
+            pictureBox_produto.Image = Imagem.Carregar("");
+            pictureBox_categoria.Image = Imagem.Carregar("");
         }
 
         private void button_atualizar_Click(object sender, EventArgs e)
@@ -154,15 +158,6 @@ namespace tfiVersaoUm
                 EditarProduto editarProd = new EditarProduto(index);
                 editarProd.ShowDialog();
             }
-        }
-
-        private void LimparComponentes()
-        {
-            lb_valorTotal.Text = "R$ 0,00";
-            lb_dataCadastro.Text = "00/00/0000";
-            textBox_descricao.Text = "";
-            pictureBox_produto.Image = Imagem.Carregar("");
-            pictureBox_categoria.Image = Imagem.Carregar("");
         }
 
         private void listView_estoque_ColumnClick(object sender, ColumnClickEventArgs e)

@@ -6,22 +6,31 @@ using System.Threading.Tasks;
 using System.Windows;
 using MongoDB.Driver;
 
-namespace tfiVersaoUm.src.dao
+namespace tfiVersaoUm
 {
     class Connection
     {
-        public Connection()
+        MongoClient Cliente;
+        IMongoDatabase Database;
+        IMongoCollection<IProduto> Collection;
+
+        public Connection(string collection)
         {
             try
             {
-                var cliente = new MongoClient("mongodb+srv://obraia:<password>@cluster0-2jhg5.mongodb.net/test?retryWrites=true&w=majority");
-                var database = cliente.GetDatabase("loja");
-                var colection = database.GetCollection<IProduto>("produtos");
+                Cliente = new MongoClient("mongodb+srv://obraia:2025glaciene@cluster0-2jhg5.mongodb.net/test?retryWrites=true&w=majority");
+                Database = Cliente.GetDatabase("loja");
+                Collection = Database.GetCollection<IProduto>(collection);
             }
-            catch(MongoAuthenticationException e)
+            catch(Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados");
             }       
-        } 
+        }
+
+        public void Store(IProduto produto)
+        {
+            this.Collection.InsertOne(produto);
+        }
     }
 }

@@ -74,6 +74,9 @@ namespace tfiVersaoUm
         {
             try
             {
+                Connection connection = new Connection("produtos");
+
+                IProduto produto;
                 string codigo = textBox_id.Text;
                 string categoria = comboBox_categoria.Text;
                 string nome = textBox_nome.Text;
@@ -89,29 +92,27 @@ namespace tfiVersaoUm
 
                     if (categoria == "Alimentos")
                     {
-                        Alimento produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos.Add(produto);
+                        produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                     }
                     else if (categoria == "Limpeza")
                     {
-                        Limpeza produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos.Add(produto);
+                        produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                     }
                     else if (categoria == "Higiene pessoal")
                     {
-                        HigienePessoal produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos.Add(produto);
+                        produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                     }
                     else if (categoria == "Hortifruti")
                     {
-                        Hortifruti produto = new Hortifruti(codigo, nome, preco, quantidade, 0, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos.Add(produto);
+                        produto = new Hortifruti(codigo, nome, preco, quantidade, 0, dataCadastro, descricao);
                     }
-                    else if (categoria == "Outros")
+                    else
                     {
-                        Outros produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
-                        ArquivoEstoque.ListaProdutos.Add(produto);
+                        produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
                     }
+
+                    ArquivoEstoque.ListaProdutos.Add(produto);
+                    connection.Store(produto);
 
                     string message = "Produto adicionado com sucesso";
                     string caption = "Sucesso";

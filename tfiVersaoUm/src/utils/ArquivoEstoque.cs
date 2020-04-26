@@ -23,7 +23,8 @@ namespace tfiVersaoUm
                         while (!sr.EndOfStream)
                         {
                             string linha = sr.ReadLine();
-                            //ID;Categoria;Nome;Preço Unidade;Quantidade;Quantidade vendida;Data de cadastro;Descrição
+
+                            IProduto produto;
 
                             string[] aux = linha.Split(';');
                             string id = aux[0];
@@ -37,29 +38,26 @@ namespace tfiVersaoUm
 
                             if (categoria == "Alimentos")
                             {
-                                Alimento produto = new Alimento(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
-                                ListaProdutos.Add(produto);
+                                produto = new Alimento(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                             }
                             else if (categoria == "Limpeza")
                             {
-                                Limpeza produto = new Limpeza(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
-                                ListaProdutos.Add(produto);
+                                produto = new Limpeza(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                             }
                             else if (categoria == "Higiene pessoal")
                             {
-                                HigienePessoal produto = new HigienePessoal(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
-                                ListaProdutos.Add(produto);
+                                produto = new HigienePessoal(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                             }
                             else if (categoria == "Hortifruti")
                             {
-                                Hortifruti produto = new Hortifruti(id, nome, preco, quantidade, quantidadeVendida, dataDeCadastro, descricao);
-                                ListaProdutos.Add(produto);
+                                produto = new Hortifruti(id, nome, preco, quantidade, quantidadeVendida, dataDeCadastro, descricao);
                             }
-                            else if (categoria == "Outros")
+                            else
                             {
-                                Outros produto = new Outros(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
-                                ListaProdutos.Add(produto);
+                                produto = new Outros(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                             }
+
+                            ListaProdutos.Add(produto);
                         }
                     }
                 }
@@ -82,7 +80,7 @@ namespace tfiVersaoUm
 
                 result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
             }
-            
+
         }
 
         public static void SalvarArquivo()
