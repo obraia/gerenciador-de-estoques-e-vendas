@@ -1,5 +1,5 @@
 # Gerenciador de Estoques e Vendas
-Feito com C# Windows Forms.
+Feito com C# Windows Forms e agora com integração com MongoDB.
 
 # Dashboard
 
