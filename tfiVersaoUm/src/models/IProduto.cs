@@ -11,7 +11,6 @@ namespace tfiVersaoUm
     interface IProduto : IComparable<IProduto>
     {
         ObjectId _id { get; set; }
-        string CodigoBarras { get; }
         string Categoria { get; }
         string Nome { get; }
         double Preco { get; }

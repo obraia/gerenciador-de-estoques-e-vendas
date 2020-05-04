@@ -45,21 +45,22 @@ namespace tfiVersaoUm
         {
             try
             {
-                FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("ID", produto.CodigoBarras);
+                FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("_id", produto._id);
                 ReplaceOneResult response = connection.Collection.ReplaceOne(filter, produto);
                 return (int)response.ModifiedCount;
             }
-            catch
+            catch(Exception e)
             {
+                MessageBox.Show(e.Message);
                 return 0;
             }
         }
 
-        public int Delete(string id)
+        public int Delete(IProduto produto)
         {
             try
             {
-                FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("ID", id);
+                FilterDefinition<IProduto> filter = Builders<IProduto>.Filter.Eq("_id", produto._id);
                 DeleteResult response = connection.Collection.DeleteOne(filter);
                 return (int)response.DeletedCount;
             }

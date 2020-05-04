@@ -1,4 +1,5 @@
 ﻿using System;
+using MongoDB.Bson;
 
 namespace tfiVersaoUm
 {
@@ -19,7 +20,7 @@ namespace tfiVersaoUm
             return produto.QuantidadeVendida.CompareTo(this.QuantidadeVendida);
         }
 
-        public Alimento(string codigoBarras, string nome, double preco, int quantidade, int quantidadeVendida, DateTime dataCadastro, string descricao) : base(codigoBarras, nome, preco, quantidade, quantidadeVendida, dataCadastro, descricao)
+        public Alimento(long codigoBarras, string nome, double preco, int quantidade, int quantidadeVendida, DateTime dataCadastro, string descricao) : base(codigoBarras, nome, preco, quantidade, quantidadeVendida, dataCadastro, descricao)
         {
 
         }

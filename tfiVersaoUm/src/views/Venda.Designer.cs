@@ -53,6 +53,7 @@
             this.roundedPanel1 = new tfiVersaoUm.GUI.RoundedPanel();
             this.pictureBoxProduto = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonRemover = new System.Windows.Forms.Button();
             this.roundedPanel7.SuspendLayout();
             this.roundedPanel4.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
@@ -130,7 +131,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label1.Location = new System.Drawing.Point(8, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 25);
+            this.label1.Size = new System.Drawing.Size(117, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Valor Total: ";
             // 
@@ -172,11 +173,11 @@
             this.labelPreco.AutoSize = true;
             this.labelPreco.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreco.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelPreco.Location = new System.Drawing.Point(92, 34);
+            this.labelPreco.Location = new System.Drawing.Point(23, 31);
             this.labelPreco.Name = "labelPreco";
-            this.labelPreco.Size = new System.Drawing.Size(191, 37);
+            this.labelPreco.Size = new System.Drawing.Size(284, 37);
             this.labelPreco.TabIndex = 0;
-            this.labelPreco.Text = "Preço: R$ 0,00";
+            this.labelPreco.Text = "Preço Uni/Kg: R$ 0,00";
             // 
             // roundedPanel3
             // 
@@ -284,17 +285,17 @@
             // ch_Nome
             // 
             this.ch_Nome.Text = "Nome do produto";
-            this.ch_Nome.Width = 321;
+            this.ch_Nome.Width = 329;
             // 
             // ch_Preco
             // 
-            this.ch_Preco.Text = "Preço da unidade";
-            this.ch_Preco.Width = 139;
+            this.ch_Preco.Text = "Preço da unidade/kg";
+            this.ch_Preco.Width = 152;
             // 
             // ch_Quantidade
             // 
-            this.ch_Quantidade.Text = "Quantidade";
-            this.ch_Quantidade.Width = 250;
+            this.ch_Quantidade.Text = "Quantidade/Quilos";
+            this.ch_Quantidade.Width = 229;
             // 
             // roundedPanel1
             // 
@@ -327,6 +328,19 @@
             this.label2.Text = "_________________________________________________________________________________" +
     "_______________________________________________";
             // 
+            // buttonRemover
+            // 
+            this.buttonRemover.FlatAppearance.BorderColor = System.Drawing.SystemColors.GrayText;
+            this.buttonRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRemover.Location = new System.Drawing.Point(424, 531);
+            this.buttonRemover.Name = "buttonRemover";
+            this.buttonRemover.Size = new System.Drawing.Size(109, 41);
+            this.buttonRemover.TabIndex = 17;
+            this.buttonRemover.Text = "Remover";
+            this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
+            // 
             // Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +348,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 611);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonRemover);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.roundedPanel7);
             this.Controls.Add(this.buttonCancelar);
@@ -348,7 +363,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Venda";
             this.Text = "Venda";
-            this.Load += new System.EventHandler(this.Venda_Load);
             this.roundedPanel7.ResumeLayout(false);
             this.roundedPanel7.PerformLayout();
             this.roundedPanel4.ResumeLayout(false);
@@ -394,5 +408,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelImposto;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonRemover;
     }
 }

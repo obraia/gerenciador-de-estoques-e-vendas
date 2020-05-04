@@ -57,7 +57,7 @@ namespace tfiVersaoUm
             InitializeComponent();
             CarregarProduto();
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
         }
 
         private void button_abrirImagem_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace tfiVersaoUm
                 ProdutoController produtoController = new ProdutoController();
 
                 IProduto produto;
-                string codigo = textBox_id.Text;
+                long codigoBarras = long.Parse(textBox_id.Text);
                 string categoria = comboBox_categoria.Text;
                 string nome = textBox_nome.Text;
                 double preco = double.Parse(textBox_preco.Text);
@@ -87,25 +87,25 @@ namespace tfiVersaoUm
 
                 if (categoria != "" && nome != "" && descricao != "")
                 {
-                    ImagemSaida = @"Arquivos\Imagens\Estoque\" + codigo + ".png";
+                    ImagemSaida = @"Arquivos\Imagens\Estoque\" + codigoBarras + ".png";
                     Imagem.Copiar(ImagemEntrada, ImagemSaida);
 
                     switch (categoria)
                     {
                         case "Alimentos":
-                            produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new Alimento(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
                         case "Limpeza":
-                            produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new Limpeza(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
                         case "Higiene pessoal":
-                            produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new HigienePessoal(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
                         case "Hortifruti":
-                            produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new Hortifruti(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
                         default:
-                            produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
+                            produto = new Outros(codigoBarras, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
                             break;
                     }
 
@@ -180,7 +180,7 @@ namespace tfiVersaoUm
         {
             if (ArquivoEstoque.ListaProdutos.Count > 0)
             {
-                string id = (long.Parse(ArquivoEstoque.ListaProdutos[ArquivoEstoque.ListaProdutos.Count - 1].CodigoBarras) + 1).ToString();
+                string id = (long.Parse(ArquivoEstoque.ListaProdutos[ArquivoEstoque.ListaProdutos.Count - 1]._id.ToString()) + 1).ToString();
                 textBox_id.Text = id;
                 comboBox_categoria.SelectedIndex = 0;
             }

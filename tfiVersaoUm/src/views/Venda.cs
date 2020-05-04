@@ -33,7 +33,7 @@ namespace tfiVersaoUm
 
             textBoxCodigoBarras.Text = "";
 
-            BuscarProduto(codigoDeBarras);
+            AdicionarProduto(codigoDeBarras);
         }
 
         private void buttonConfirmar_Click(object sender, EventArgs e)
@@ -76,6 +76,7 @@ namespace tfiVersaoUm
             switch (result)
             {
                 case DialogResult.Yes:   // Yes button pressed
+                    LimparLista();
                     LimparCampos();
                     ArquivoEstoque.LerArquivo();
                     break;
@@ -95,15 +96,67 @@ namespace tfiVersaoUm
                     codigoDeBarras = codigoDeBarras.Substring(0, 12);
                 }
                 textBoxCodigoBarras.Text = "";
-                BuscarProduto(codigoDeBarras);
+                AdicionarProduto(codigoDeBarras);
             }
         }
 
-        void BuscarProduto(string codigoDeBarras)
+        IProduto BuscarProduto(string codigoDeBarras)
         {
-            bool adicionado = false;
-            double quantidadePeso = 0;
+            foreach (IProduto produto in ArquivoEstoque.ListaProdutos)
+            {
+                if (Id.ToString(produto._id) == codigoDeBarras) return produto;
+            }
 
+            return null;
+        }
+
+        void AdicionarProduto(string codigoDeBarras)
+        {
+            IProduto produto = BuscarProduto(codigoDeBarras);
+
+            if (produto != null)
+            {
+                if (produto.Quantidade > 0)
+                {
+                    if (produto.TipoVenda == "Unidade")
+                    {
+                        produto.Quantidade--;
+                        produto.QuantidadeVendida++;
+                        produto.QuantidadeComprada++;
+                        ValorTotalSemImposto += produto.Preco;
+                        ValorTotal += produto.Preco + (produto.Preco * produto.Imposto);
+                    }
+                    else if (produto.TipoVenda == "Quilo")
+                    {
+                        QuantidadeQuilo quantidadeQuilo = new QuantidadeQuilo();
+                        quantidadeQuilo.ShowDialog();
+                        double quantidade = quantidadeQuilo.Peso;
+                        produto.Quantidade -= quantidade;
+                        produto.QuantidadeVendida += quantidade;
+                        produto.QuantidadeComprada += quantidade;
+                        ValorTotalSemImposto += produto.Preco * quantidade;
+                        ValorTotal += produto.Preco * quantidade + (produto.Preco * quantidade * produto.Imposto);
+                    }
+                }
+                else
+                {
+                    string message = "Produto indisponível no estoque";
+                    string caption = "Estoque";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Exclamation);
+                }
+
+                if (ListaCompra.IndexOf(produto) == -1)
+                {
+                    ListaCompra.Add(produto);
+                }
+
+                CarregarTabela();
+                CarregarProduto(produto);
+            }
+
+            /*
             if (ListaCompra.Count > 0)
             {
                 foreach (IProduto produto in ListaCompra)
@@ -111,7 +164,7 @@ namespace tfiVersaoUm
                     // caso o produto já tenha entrado na lista de compras
                     // será incrementado +1 em sua quantidade
 
-                    if (codigoDeBarras == produto.CodigoBarras)
+                    if (codigoDeBarras == Id.ToString(produto._id))
                     {
                         if (produto.Quantidade > 0)
                         {
@@ -119,20 +172,20 @@ namespace tfiVersaoUm
 
                             if (quantidadePeso < produto.Quantidade)
                             {
-                                if (produto.TipoVenda == "Quilo")
-                                {
-                                    ValorTotalSemImposto += preco;
-                                    ValorTotal += preco + (preco * produto.Imposto);
-                                    produto.Quantidade -= quantidadePeso;
-                                    produto.QuantidadeComprada += quantidadePeso;
-                                }
-                                else
+                                if (produto.TipoVenda == "Unidade")
                                 {
                                     ValorTotalSemImposto += produto.Preco;
                                     ValorTotal = ValorTotal + produto.Preco + (produto.Preco * produto.Imposto);
                                     produto.Quantidade--;
                                     produto.QuantidadeComprada++;
                                     produto.QuantidadeVendida++;
+                                }
+                                else
+                                {
+                                    ValorTotalSemImposto += preco;
+                                    ValorTotal += preco + (preco * produto.Imposto);
+                                    produto.Quantidade -= quantidadePeso;
+                                    produto.QuantidadeComprada += quantidadePeso;
                                 }
 
                                 CarregarTabela();
@@ -163,7 +216,6 @@ namespace tfiVersaoUm
                             break;
                         }
                     }
-
                 }
             }
 
@@ -171,7 +223,7 @@ namespace tfiVersaoUm
             {
                 foreach (IProduto produtoEstoque in ArquivoEstoque.ListaProdutos)
                 {
-                    if (codigoDeBarras == produtoEstoque.CodigoBarras)
+                    if (codigoDeBarras == Id.ToString(produtoEstoque._id))
                     {
                         if (produtoEstoque.Quantidade > 0)
                         {
@@ -182,21 +234,20 @@ namespace tfiVersaoUm
 
                             if (quantidadePeso < produtoEstoque.Quantidade)
                             {
-                                if (aux.TipoVenda == "Quilo")
+                                if (aux.TipoVenda == "Unidade")
                                 {
-                                    ValorTotalSemImposto += preco;
-                                    ValorTotal = ValorTotal + preco + (preco * aux.Imposto);
-                                    aux.Quantidade -= quantidadePeso;
-                                    aux.QuantidadeComprada = quantidadePeso;
-                                }
-                                else
-                                {
-
                                     ValorTotalSemImposto += produtoEstoque.Preco;
                                     ValorTotal = ValorTotal + produtoEstoque.Preco + (produtoEstoque.Preco * produtoEstoque.Imposto);
                                     aux.Quantidade--;
                                     aux.QuantidadeComprada++;
                                     aux.QuantidadeVendida++;
+                                }
+                                else
+                                {
+                                    ValorTotalSemImposto += preco;
+                                    ValorTotal = ValorTotal + preco + (preco * aux.Imposto);
+                                    aux.Quantidade -= quantidadePeso;
+                                    aux.QuantidadeComprada = quantidadePeso;
                                 }
 
                                 CarregarTabela();
@@ -231,41 +282,23 @@ namespace tfiVersaoUm
                     }
                 }
             }
-            labelValorTotal.Text = "R$ " + ValorTotal.ToString("F2");
+            */
         }
 
-        double CarregarProduto(IProduto produto, ref double quantidade)
+        void CarregarProduto(IProduto produto)
         {
-            double preco = 0;
-
-            string caminhoImagem = @"Arquivos\Imagens\Estoque\" + produto.CodigoBarras + ".png";
+            string caminhoImagem = @"Arquivos\Imagens\Estoque\" + Id.ToString(produto._id) + ".png";
             pictureBoxProduto.Image = Imagem.Carregar(caminhoImagem);
             labelNome.Text = produto.Nome;
-
-            if (produto.TipoVenda == "Quilo")
-            {
-                QuantidadeQuilo quantidadeQuilo = new QuantidadeQuilo();
-                quantidadeQuilo.ShowDialog();
-                quantidade = quantidadeQuilo.Peso;
-                preco = produto.Preco * quantidade;
-                labelPreco.Text = "Preço: R$ " + preco.ToString("F2");
-            }
-            else if (produto.TipoVenda == "Unidade")
-            {
-                labelPreco.Text = "Preço: R$ " + produto.Preco.ToString("F2");
-                preco = produto.Preco;
-            }
+            labelPreco.Text = "Preço Uni/Kg: R$ " + produto.Preco.ToString("F2");
+            labelImposto.Text = (produto.Imposto * 100).ToString("F2") + "%";
 
             try //Gerar código de barras do produto
             {
                 Zen.Barcode.CodeEan13BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.CodeEan13WithChecksum;
-                pictureBoxCodigoBarras.Image = brCode.Draw(produto.CodigoBarras, 60, 20);
+                pictureBoxCodigoBarras.Image = brCode.Draw(Id.ToString(produto._id), 60, 20);
             }
-            catch
-            {
-
-            }
-            return preco;
+            catch { }
         }
 
         void CarregarTabela()
@@ -283,16 +316,22 @@ namespace tfiVersaoUm
                 var listViewItem = new ListViewItem(row);
                 listViewCompras.Items.Add(listViewItem);
             }
+
+            labelValorTotal.Text = "R$ " + ValorTotal.ToString("F2");
+        }
+
+        void LimparLista()
+        {
+            listViewCompras.Items.Clear();
+            ListaCompra.Clear();
         }
 
         void LimparCampos()
         {
-            listViewCompras.Items.Clear();
-            ListaCompra.Clear();
             textBoxCodigoBarras.Text = "";
             labelNome.Text = "Nome do produto";
             labelImposto.Text = "0,00%";
-            labelPreco.Text = "Preço: R$ 0,00";
+            labelPreco.Text = "Preço Uni/Kg: R$ 0,00";
             labelValorTotal.Text = "R$ 0,00";
             pictureBoxCodigoBarras.Image = pictureBoxCodigoBarras.InitialImage;
             pictureBoxProduto.Image = pictureBoxProduto.InitialImage;
@@ -301,7 +340,13 @@ namespace tfiVersaoUm
 
         void ConfirmarCompra()
         {
-            ArquivoEstoque.SalvarArquivo();
+            ProdutoController produtoController = new ProdutoController();
+
+            foreach (IProduto produto in ListaCompra)
+            {
+                produtoController.Update(produto);
+            }
+
             ArquivoFinanceiro.SalvarSaldo(ValorTotalSemImposto);
 
             GerarNotaFiscal();
@@ -319,6 +364,7 @@ namespace tfiVersaoUm
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Information);
 
+            LimparLista();
             LimparCampos();
         }
 
@@ -350,9 +396,40 @@ namespace tfiVersaoUm
             }
         }
 
-        private void Venda_Load(object sender, EventArgs e)
+        private void buttonRemover_Click(object sender, EventArgs e)
         {
+            int index = 0;
 
+            if (listViewCompras.SelectedItems.Count > 0)
+            {
+                index = listViewCompras.SelectedItems[0].Index;
+
+                RemoverProduto(index);
+            }
+            else
+            {
+                string message = "Nenhum produto selecionado para remoção";
+                string caption = "Atenção";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void RemoverProduto(int index)
+        {
+            if (ListaCompra[index].QuantidadeComprada == 1)
+            {
+                ListaCompra.RemoveAt(index);
+                LimparCampos();
+                CarregarTabela();
+            }
+            else
+            {
+                ListaCompra[index].QuantidadeComprada--;
+            }
+
+            CarregarTabela();
         }
     }
 }

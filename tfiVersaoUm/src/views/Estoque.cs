@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using MongoDB.Bson.Serialization;
 
 namespace tfiVersaoUm
 {
@@ -7,9 +9,15 @@ namespace tfiVersaoUm
     {
         public Estoque()
         {
+            BsonClassMap.RegisterClassMap<Alimento>();
+            BsonClassMap.RegisterClassMap<HigienePessoal>();
+            BsonClassMap.RegisterClassMap<Hortifruti>();
+            BsonClassMap.RegisterClassMap<Limpeza>();
+            BsonClassMap.RegisterClassMap<Outros>();
+
             ProdutoController produtoController = new ProdutoController();
-            //ArquivoEstoque.LerArquivo();
             ArquivoEstoque.ListaProdutos = produtoController.Index();
+
             InitializeComponent();
             CarregarTabela();
         }
@@ -24,13 +32,11 @@ namespace tfiVersaoUm
         private void button_excluir_Click(object sender, EventArgs e)
         {
             int index = 0;
-            string id = "";
 
             if (listView_estoque.SelectedItems.Count > 0)
             {
                 ListViewItem selItem = listView_estoque.SelectedItems[0];
                 index = selItem.Index;
-                id = selItem.Text;
 
                 string message = "Tem certeza que deseja excluir o produto?";
                 string caption = "Atenção";
@@ -41,7 +47,7 @@ namespace tfiVersaoUm
                 switch (result)
                 {
                     case DialogResult.Yes:
-                        RemoverProduto(index, id);
+                        RemoverProduto(index);
                         LimparComponentes();
                         CarregarTabela();
                         ArquivoEstoque.SalvarArquivo();
@@ -52,11 +58,13 @@ namespace tfiVersaoUm
             }
         }
 
-        private void RemoverProduto(int index, string id)
+        private void RemoverProduto(int index)
         {
             ProdutoController produtoController = new ProdutoController();
 
-            int response = produtoController.Delete(id);
+            IProduto produto = ArquivoEstoque.ListaProdutos[index];
+
+            int response = produtoController.Delete(produto);
 
             if (response > 0)
             {
@@ -124,7 +132,7 @@ namespace tfiVersaoUm
                 lb_valorTotal.Text = "R$ " + (ArquivoEstoque.ListaProdutos[index].Preco * ArquivoEstoque.ListaProdutos[index].Quantidade).ToString("F2");
                 lb_dataCadastro.Text = ArquivoEstoque.ListaProdutos[index].DataCadastro.ToString();
                 textBox_descricao.Text = ArquivoEstoque.ListaProdutos[index].Descricao;
-                pictureBox_produto.Image = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + ArquivoEstoque.ListaProdutos[index].CodigoBarras + ".png");
+                pictureBox_produto.Image = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + Id.ToString(ArquivoEstoque.ListaProdutos[index]._id) + ".png");
 
                 categoria = ArquivoEstoque.ListaProdutos[index].Categoria;
 
@@ -151,7 +159,7 @@ namespace tfiVersaoUm
                 try //Gerar código de barras do produto
                 {
                     Zen.Barcode.CodeEan13BarcodeDraw brCode = Zen.Barcode.BarcodeDrawFactory.CodeEan13WithChecksum;
-                    pB_codigoBarras.Image = brCode.Draw(ArquivoEstoque.ListaProdutos[index].CodigoBarras, 60, 20);
+                    pB_codigoBarras.Image = brCode.Draw(Id.ToString(ArquivoEstoque.ListaProdutos[index]._id), 60, 20);
                 }
                 catch { }
             }
@@ -163,7 +171,7 @@ namespace tfiVersaoUm
 
             foreach (var produto in ArquivoEstoque.ListaProdutos)
             {
-                string codigoBarras = produto.CodigoBarras;
+                string codigoBarras = Id.ToString(produto._id);
                 string categoria = produto.Categoria;
                 string nome = produto.Nome;
                 string preco = "R$ " + produto.Preco.ToString("F2");
@@ -184,10 +192,18 @@ namespace tfiVersaoUm
             if (listView_estoque.SelectedItems.Count > 0)
             {
                 ListViewItem selItem = listView_estoque.SelectedItems[0];
-                index = selItem.Index;
+                index = listView_estoque.SelectedItems[0].Index;
 
-                EditarProduto editarProd = new EditarProduto(index);
-                editarProd.ShowDialog();
+                EditarProduto editarProduto = new EditarProduto(index);
+                editarProduto.ShowDialog();
+            }
+            else
+            {
+                string message = "Nenhum produto selecionado para edição";
+                string caption = "Atenção";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -196,7 +212,7 @@ namespace tfiVersaoUm
             switch (e.Column)
             {
                 case 0:
-                    ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.CodigoBarras.CompareTo(p2.CodigoBarras));
+                    ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1._id.ToString().CompareTo(p2._id.ToString()));
                     break;
                 case 1:
                     ArquivoEstoque.ListaProdutos.Sort((IProduto p1, IProduto p2) => p1.Categoria.CompareTo(p2.Categoria));

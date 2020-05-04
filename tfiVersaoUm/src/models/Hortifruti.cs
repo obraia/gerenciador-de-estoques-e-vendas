@@ -20,7 +20,7 @@ namespace tfiVersaoUm
             return produto.QuantidadeVendida.CompareTo(this.QuantidadeVendida);
         }
 
-        public Hortifruti(string codigoBarras, string nome, double preco, double quantidade, double quantidadeVendida, DateTime dataCadastro, string descricao) : base(codigoBarras, nome, preco, quantidade, quantidadeVendida, dataCadastro, descricao)
+        public Hortifruti(long codigoBarras, string nome, double preco, double quantidade, double quantidadeVendida, DateTime dataCadastro, string descricao) : base(codigoBarras, nome, preco, quantidade, quantidadeVendida, dataCadastro, descricao)
         {
 
         }

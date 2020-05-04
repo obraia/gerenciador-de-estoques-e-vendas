@@ -10,8 +10,7 @@ namespace tfiVersaoUm
     class Produto : IProduto
     {
         public ObjectId _id { get; set; }
-        public virtual double Imposto { get;  private set; }
-        public string CodigoBarras { get; private set; }
+        public virtual double Imposto { get; private set; }
         public virtual string Categoria { get; private set; }
         public string Nome { get; private set; }
         public double Preco { get; private set; }
@@ -33,9 +32,9 @@ namespace tfiVersaoUm
             return produto.QuantidadeVendida.CompareTo(this.QuantidadeVendida);
         }
 
-        public Produto(string codigoBarras, string nome, double preco, double quantidade, double quantidadeVendida, DateTime dataCadastro, string descricao)
+        public Produto(long codigoBarras, string nome, double preco, double quantidade, double quantidadeVendida, DateTime dataCadastro, string descricao)
         {
-            CodigoBarras = codigoBarras;
+            _id = ObjectId.Parse(codigoBarras.ToString("D24"));
             Nome = nome;
             Preco = preco;
             Quantidade = quantidade;
@@ -46,7 +45,7 @@ namespace tfiVersaoUm
 
         public string EscreverArquivo()
         {
-            return CodigoBarras + ";" + Categoria + ";" + Nome + ";" + Preco.ToString("F2") + ";" + Quantidade + ";" + QuantidadeVendida + ";" + DataCadastro.ToString() + ";" + Descricao;
+            return _id.ToString() + ";" + Categoria + ";" + Nome + ";" + Preco.ToString("F2") + ";" + Quantidade + ";" + QuantidadeVendida + ";" + DataCadastro.ToString() + ";" + Descricao;
         }
     }
 }

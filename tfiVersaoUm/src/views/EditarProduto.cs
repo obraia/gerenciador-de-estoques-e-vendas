@@ -58,9 +58,9 @@ namespace tfiVersaoUm
             InitializeComponent();
             CarregarProduto();
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
-            ImagemEntrada = @"Arquivos\Estoque\Imagens\" + ArquivoEstoque.ListaProdutos[Index].CodigoBarras + ".png";
-            ImagemSaida = @"Arquivos\Estoque\Imagens\" + ArquivoEstoque.ListaProdutos[Index].CodigoBarras + ".png";
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+            ImagemEntrada = @"Arquivos\Estoque\Imagens\" + Id.ToString(ArquivoEstoque.ListaProdutos[Index]._id) + ".png";
+            ImagemSaida = @"Arquivos\Estoque\Imagens\" + Id.ToString(ArquivoEstoque.ListaProdutos[Index]._id) + ".png";
         }
 
         private void button_abrirImagem_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace tfiVersaoUm
                 ProdutoController produtoController = new ProdutoController();
 
                 IProduto produto;
-                string codigo = textBox_id.Text;
+                long codigoBarras = long.Parse(textBox_id.Text);
                 string categoria = comboBox_categoria.Text;
                 string nome = textBox_nome.Text;
                 double preco = double.Parse(textBox_preco.Text);
@@ -103,26 +103,26 @@ namespace tfiVersaoUm
                     switch (categoria)
                     {
                         case "Alimentos":
-                            produto = new Alimento(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new Alimento(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
                         case "Limpeza":
-                            produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new Limpeza(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
                         case "Higiene pessoal":
-                            produto = new HigienePessoal(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new HigienePessoal(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
                         case "Hortifruti":
-                        produto = new Limpeza(codigo, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
+                            produto = new Hortifruti(codigoBarras, nome, preco, (int)quantidade, 0, dataCadastro, descricao);
                             break;
 
                         default:
-                            produto = new Outros(codigo, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
+                            produto = new Outros(codigoBarras, nome, preco, (int)quantidade, (int)quantidade, dataCadastro, descricao);
                             break;
                     }
 
                     int response = produtoController.Update(produto);
-             
-                    if(response > 0)
+
+                    if (response > 0)
                     {
                         ArquivoEstoque.ListaProdutos[Index] = produto;
 
@@ -145,7 +145,7 @@ namespace tfiVersaoUm
 
                         result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
                     }
-                                        
+
                 }
                 else
                 {
@@ -172,31 +172,31 @@ namespace tfiVersaoUm
         private void CarregarProduto()
         {
             textBox_nome.Text = ArquivoEstoque.ListaProdutos[Index].Nome;
-            textBox_id.Text = ArquivoEstoque.ListaProdutos[Index].CodigoBarras;
+            textBox_id.Text = Id.ToString(ArquivoEstoque.ListaProdutos[Index]._id);
             textBox_quantidade.Text = ArquivoEstoque.ListaProdutos[Index].Quantidade.ToString();
             textBox_preco.Text = ArquivoEstoque.ListaProdutos[Index].Preco.ToString("F2");
             textBox_descricao.Text = ArquivoEstoque.ListaProdutos[Index].Descricao;
-            pictureBox_imagem.BackgroundImage = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + ArquivoEstoque.ListaProdutos[Index].CodigoBarras + ".png");
+            pictureBox_imagem.BackgroundImage = Imagem.Carregar(@"Arquivos\Imagens\Estoque\" + Id.ToString(ArquivoEstoque.ListaProdutos[Index]._id) + ".png");
 
-            if (ArquivoEstoque.ListaProdutos[Index].Categoria == "Alimentos")
+            string categoria = ArquivoEstoque.ListaProdutos[Index].Categoria;
+
+            switch (categoria)
             {
-                comboBox_categoria.SelectedIndex = 0;
-            }
-            else if (ArquivoEstoque.ListaProdutos[Index].Categoria == "Higiene pessoal")
-            {
-                comboBox_categoria.SelectedIndex = 1;
-            }
-            else if (ArquivoEstoque.ListaProdutos[Index].Categoria == "Hortifruti")
-            {
-                comboBox_categoria.SelectedIndex = 2;
-            }
-            else if (ArquivoEstoque.ListaProdutos[Index].Categoria == "Limpeza")
-            {
-                comboBox_categoria.SelectedIndex = 3;
-            }
-            else if (ArquivoEstoque.ListaProdutos[Index].Categoria == "Outros")
-            {
-                comboBox_categoria.SelectedIndex = 4;
+                case "Alimentos":
+                    comboBox_categoria.SelectedIndex = 0;
+                    break;
+                case "Higiene pessoal":
+                    comboBox_categoria.SelectedIndex = 1;
+                    break;
+                case "Hortifruti":
+                    comboBox_categoria.SelectedIndex = 2;
+                    break;
+                case "Limpeza":
+                    comboBox_categoria.SelectedIndex = 3;
+                    break;
+                default:
+                    comboBox_categoria.SelectedIndex = 4;
+                    break;
             }
         }
 

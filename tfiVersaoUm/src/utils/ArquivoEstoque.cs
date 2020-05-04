@@ -27,7 +27,7 @@ namespace tfiVersaoUm
                             IProduto produto;
 
                             string[] aux = linha.Split(';');
-                            string id = aux[0];
+                            long codigoBarras = long.Parse(aux[0]);
                             string categoria = aux[1];
                             string nome = aux[2];
                             double preco = double.Parse(aux[3]);
@@ -39,20 +39,20 @@ namespace tfiVersaoUm
                             switch (categoria)
                             {
                                 case "Alimentos":
-                                    produto = new Alimento(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    produto = new Alimento(codigoBarras, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                                     break;
                                 case "Limpeza":
-                                    produto = new Limpeza(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    produto = new Limpeza(codigoBarras, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                                     break;
                                 case "Higiene pessoal":
-                                    produto = new HigienePessoal(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    produto = new HigienePessoal(codigoBarras, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                                     break;
                                 case "Hortifruti":
-                                    produto = new Hortifruti(id, nome, preco, quantidade, quantidadeVendida, dataDeCadastro, descricao);
+                                    produto = new Hortifruti(codigoBarras, nome, preco, quantidade, quantidadeVendida, dataDeCadastro, descricao);
                                     break;
 
                                 default:
-                                    produto = new Outros(id, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
+                                    produto = new Outros(codigoBarras, nome, preco, (int)quantidade, (int)quantidadeVendida, dataDeCadastro, descricao);
                                     break;
                             }
 
@@ -95,7 +95,7 @@ namespace tfiVersaoUm
 
         public static void RemoverProduto(int index)
         {
-            File.Delete(@"Arquivos\Imagens\Estoque\" + ListaProdutos[index].CodigoBarras + ".png");
+            File.Delete(@"Arquivos\Imagens\Estoque\" + ListaProdutos[index]._id.ToString() + ".png");
             ListaProdutos.RemoveAt(index);
         }
 

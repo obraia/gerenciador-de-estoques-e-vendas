@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dotenv.cs" />
     <Compile Include="src\controllers\ProdutoController.cs" />
     <Compile Include="src\models\Produto.cs" />
     <Compile Include="src\services\Connection.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="src\utils\ArquivoEstoque.cs" />
     <Compile Include="src\utils\ArquivoFornecedores.cs" />
     <Compile Include="src\utils\ArquivoVenda.cs" />
+    <Compile Include="src\utils\Id.cs" />
     <Compile Include="src\utils\Imagem.cs" />
     <Compile Include="Data.Designer.cs">
       <AutoGen>True</AutoGen>
